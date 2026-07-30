@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import { todoServices } from "./todo.service";
 
 const createTodo = async(req:Request,res:Response) => {
-    const {user_id,title} = req.body;
+    // const {user_id,title} = req.body;
     try{
-        const result = await todoServices.createTodo(user_id,title);
+        const result = await todoServices.createTodo(req.body);
         res.status(201).json({
             success:true,
             message:"todos data posted successfully",

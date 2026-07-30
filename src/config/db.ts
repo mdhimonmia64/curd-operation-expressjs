@@ -3,7 +3,7 @@ import config from '.';
 
 //DB
 export const pool = new Pool({
-    connectionString:`${config.connection_str}`
+    connectionString:`${config.connection_str}`,
 })
 
 // id,name,email,age,phone,created_at updated_at
@@ -12,7 +12,9 @@ const initDB = async () => {
         CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
+        role VARCHAR(50) NOT NULL,
         email VARCHAR(100) NOT NULL,
+        password TEXT NOT NULL,
         age INT,
         phone VARCHAR(15),
         created_at TIMESTAMP DEFAULT NOW(),
